@@ -48,7 +48,7 @@ body {
     text-align: center;
 }
 
-.authors-list > ol {
+.authors-list > ol, .books-list > ol {
     margin-top: 20px;
 }
 

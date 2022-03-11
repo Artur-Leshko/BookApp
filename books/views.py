@@ -97,7 +97,7 @@ def books_in_progress_from_user(request):
 @login_required
 def book_create(request):
     if request.method == "GET":
-        return render(request, "books/create_book.html", {'form': BookForm({'request': request})})
+        return render(request, "books/create_book.html", {'form': BookForm()})
     else:
         try:
             form = BookForm(request.POST)
@@ -105,22 +105,23 @@ def book_create(request):
             new_book.save()
             return redirect('books_list')
         except ValueError:
-            return render(request, "books/create_book.html", {'form': BookForm(), 'error': 'Bad data passed in. Try again!'})
+            return render(request, "books/create_book.html", {'form': form, 'error': 'Bad data passed in. Try again!'})
 
 
 @login_required
 def book_update(request, pk):
+    book = Book.objects.get(pk=pk)
     if request.method == "GET":
-        book = Book.objects.get(pk=pk)
-        return render(request, "books/update_book.html", {'form': BookForm()})
+        form = BookForm(instance=book)
+        return render(request, "books/update_book.html", {'form': form})
     else:
         try:
-            form = BookForm(request.PUT)
+            form = BookForm(request.POST, instance=book)
             updated_book = form.save(commit=False)
             updated_book.save()
             return redirect('books_list')
         except ValueError:
-            return render(request, "books/update_book.html", {'form': BookForm(), 'error': 'Bad data passed in. Try again!'})
+            return render(request, "books/update_book.html", {'form': form, 'error': 'Bad data passed in. Try again!'})
 
 
 @login_required
