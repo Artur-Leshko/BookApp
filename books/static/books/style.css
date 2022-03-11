@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 20px;
+    font-weight: 500;
+    font-family: 'sans-serif';
+    background-color: white;
+}
+
+.home__welcome {
+    padding: 30px 0;
+}
+
+.home__title {
+    color: black;
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.home__title > h1 {
+    text-align: center;
+}
+
+.home__subtitle {
+    width: 40%;
+    margin: 0 auto;
+
+    color: black;
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+    word-break: all;
+}
+
+.authors-list, .books-list, .author {
+    padding: 30px 0;
+}
+
+.authors-list__title, .books-list__title {
+    color: black;
+    font-size: 26px;
+    font-weight: 600;
+
+    text-align: center;
+}
+
+.authors-list > ol {
+    margin-top: 20px;
+}
+
+.authors-list > ol > li {
+    color black;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.authors-list__empty, .books-list__empty {
+    color: red;
+    font-size: 26px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.author__info {
+    color: black;
+    font-size: 26px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.author__buttons {
+    margin-top: 20px;
+}
+
+.author__buttons > a {
+    margin-right: 10px;
+}
+
+.book {
+    padding: 30px 0;
+}
+
+.book__title {
+    color: black;
+    font-size: 26px;
+    font-weight: 600;
+
+    text-align: center;
+}
+
+.book__info {
+    margin-bottom: 20px;
+}
+
+.book__block {
+    display: flex;
+    align-items: center;
+
+    margin-bottom: 10px;
+}
+
+.book__block > span {
+    margin-right: 15px;
+}
+
+.book__block:last-child {
+    margin-bottom: 0;
+}
+
+.book__block-cube {
+    width: 20px;
+    height: 20px;
+
+    border-radius: 50%;
+}

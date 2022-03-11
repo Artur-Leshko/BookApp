@@ -1,0 +1,20 @@
+{% extends "books/base.html" %}
+{% block content %}
+    <div class="authors-list">
+        <h2 class="authors-list__title">All authors</h2>
+        <a href="{% url 'author_create' %}" class="btn btn-primary">Create author</a>
+        {% if authors %}
+            <ol>
+                {% for author in authors %}
+                    <li>
+                        <a href="{% url 'author_detail' author.id %}">{{ author.name }} {{ author.surname }}</a>
+                    </li>
+                {% endfor %}
+            </ol>
+        {% else %}
+        <div class="authors-list__empty">
+            Tere is no authors!
+        </div>
+        {% endif %}
+    </div>
+{% endblock %}

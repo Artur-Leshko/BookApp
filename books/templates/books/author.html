@@ -1,0 +1,25 @@
+{% extends "books/base.html" %}
+{% block content %}
+    <div class="author">
+        <h2 class="author__info">{{author.name}} {{author.surname}}</h2>
+        <div class="author__books-list">
+            {% if books %}
+                <ol>
+                {% for book in books %}
+                    <li>
+                        <a href="{% url 'book_detail' book.id %}">{{ book.title }}</a>
+                    </li>
+                {% endfor %}
+                </ol>
+            {% else %}
+                <div>
+                    This author have no books!
+                </div>
+            {% endif %}
+        </div>
+        <div class="author__buttons">
+            <a href="{% url 'author_update' author.id %}" class="btn btn-primary">Update author</a>
+            <a href="{% url 'author_delete' author.id %}" class="btn btn-danger">Delete author</a>
+        </div>
+    </div>
+{% endblock %}

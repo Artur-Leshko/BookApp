@@ -1,0 +1,11 @@
+{% extends "books/base.html" %}
+{% block content %}
+    <div class="book">
+        <form method="put">
+            {% csrf_token %}
+            {{ form.as_p }}
+            {% if error %}<div class="error">{{ error }}</div>>{% endif %}
+            <button type="submit" class="btn btn-primary">Update new book</button>
+        </form>
+    </div>
+{% endblock %}

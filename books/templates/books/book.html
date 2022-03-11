@@ -1,0 +1,33 @@
+{% extends "books/base.html" %}
+{% block content %}
+    <div class="book">
+        <h2 class="book__title">{{book.title}}</h2>
+        <div class="book__info">
+            <div class="book__block">
+                <span class="book__block-title">Author: </span>
+                <a href="{% url 'author_detail' author.id %}">{{ author.name }} {{ author.surname }}</a>
+            </div>
+            <div class="book__block">
+                <span class="book__block-title">Description: </span>
+                {{ book.description }}
+            </div>
+            <div class="book__block">
+                <span class="book__block-title">Pages: </span>
+                {{ book.pages }}
+            </div>
+            <div class="book__block">
+                <span class="book__block-title">Finished: </span>
+                <div class="book__block-cube" style="background-color: {% if book.done %} #30db5b {% else %} #db4730 {% endif %};"></div>
+            </div>
+            <div class="book__block">
+                <span class="book__block-title">In progress: </span>
+                <div class="book__block-cube" style="background-color: {% if book.in_process %} #30db5b {% else %} #db4730 {% endif %};"></div>
+            </div>
+
+        </div>
+        <div class="book__buttons">
+            <a href="{% url 'book_update' book.id %}}" class="btn btn-primary">Update book</a>
+            <a href="{% url 'book_delete' book.id %}" class="btn btn-danger">Delete book</a>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "books/base.html" %}
+{% block content %}
+    <div class="books-list">
+        <h2 class="books-list__title">All books</h2>
+        <a href="{% url 'book_create' %}" class="btn btn-primary">Create book</a>
+        {% if books %}
+            <ol>
+                {% for book in books %}
+                    <li>
+                        <a href="{% url 'book_detail' book.id %}">{{ book.title }}</a>
+                    </li>
+                {% endfor %}
+            </ol>
+        {% else %}
+        <div class="books-list__empty">
+            There is no books!
+        </div>
+        {% endif %}
+    </div>
+{% endblock %}
